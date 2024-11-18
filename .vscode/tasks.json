@@ -1,0 +1,41 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "cmake",
+        "type": "shell",
+        "command": "",
+        "group": {
+            "kind": "build",
+            "isDefault": false
+        },
+        "problemMatcher": ["$gcc"],
+        "options": {
+          "shell": {
+              "executable": "C:/msys64/usr/bin/bash.exe",
+              "args": ["-c", "source /etc/profile && export PATH=/mingw32/bin:$PATH && cd '${workspaceFolder}' && cmake -B build -G\"MSYS Makefiles\""],
+          }
+        },
+        "detail": "Generated task by VS Code"
+      },
+      {
+        "label": "make",
+        "type": "shell",
+        "command": "",
+        "group": {
+            "kind": "build",
+            "isDefault": true
+        },
+        "problemMatcher": ["$gcc"],
+        "options": {
+          "shell": {
+              "executable": "C:/msys64/usr/bin/bash.exe",
+              "args": ["-c", "source /etc/profile && export PATH=/mingw32/bin:$PATH && cd '${workspaceFolder}' && make -C ./build"],
+          }
+        },
+        "detail": "Generated task by VS Code",
+        "dependsOn": "cmake"
+      },
+    ]
+  }
+  
