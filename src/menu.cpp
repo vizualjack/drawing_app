@@ -1,5 +1,6 @@
 #include "gui.hpp"
 #include "global.hpp"
+#include "consolePrinter.hpp"
 #include <vector>
 #include <thread>
 #include <functional>
@@ -47,7 +48,8 @@ void openFileDialog(void (*onSelectedFunc)(std::string) ) {
         dialogWindow.close();
     });
     fileDialog->setAutoLayout(tgui::AutoLayout::Fill);
-    std::cout << "Open color picker..." << std::endl;
+    // std::cout << "Open color picker..." << std::endl;
+    printToConsole("Open color picker...");
     dialogGui.add(fileDialog);
     fileDialogOpen = true;
     dialogGui.draw();
@@ -79,7 +81,8 @@ void openSizeDialog() {
     createButton->onClick([&wannaClose, &widthInput, &heightInput]() {
         auto width = widthInput->getText().toInt();
         auto height = heightInput->getText().toInt();
-        std::cout << "New image size: " << width << ", " << height << std::endl;
+        // std::cout << "New image size: " << width << ", " << height << std::endl;
+        printToConsole("New image size: " + std::to_string(width) + ", " + std::to_string(height));
         Settings::canvasTexture.create(width, height);
         Settings::canvasTexture.clear(sf::Color::White);
         wannaClose = true;

@@ -2,6 +2,7 @@
 #include <TGUI/Backend/SFML-Graphics.hpp>
 #include "gui.hpp"
 #include "global.hpp"
+#include "consolePrinter.hpp"
 
 int Settings::brushSize = 3;
 tgui::Color Settings::brushColor = tgui::Color::Black;
@@ -80,7 +81,8 @@ int main() {
                     float(lastMousePosition.x - mousePosition.x) * zoomLevel,
                     float(lastMousePosition.y - mousePosition.y) * zoomLevel
                 );
-                std::cout << "Move view with offset" << std::to_string(offset.x) << ", y" << std::to_string(offset.y) << std::endl;
+                // std::cout << "Move view with offset" << std::to_string(offset.x) << ", y" << std::to_string(offset.y) << std::endl;
+                printToConsole("Move view with offset" + std::to_string(offset.x) + ", y" + std::to_string(offset.y));
                 auto canvasView = renderTexture.getView();
                 canvasView.move(offset);
                 renderTexture.setView(canvasView);
@@ -99,7 +101,8 @@ int main() {
                         zoomLevel *= 1.1f;
                     }
                     renderTexture.setView(canvasView);
-                    std::cout << "New zoom level: " << std::to_string(zoomLevel) << std::endl;
+                    // std::cout << "New zoom level: " << std::to_string(zoomLevel) << std::endl;
+                    printToConsole("New zoom level: " + std::to_string(zoomLevel));
                 }
             }
             else if (event.type == sf::Event::Resized) {

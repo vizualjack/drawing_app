@@ -1,18 +1,24 @@
 cmake_minimum_required(VERSION 3.10)
 project(MyProject)
-#### RELEASE VERSION
-# set(CMAKE_BUILD_TYPE Release)
-# add_executable(MyProject WIN32 src/main.cpp)
-#### DEBUG VERSION
-set(CMAKE_BUILD_TYPE Debug)
 
 set(SOURCE_FILES
     src/main.cpp
     src/menu.cpp
     src/toolbar.cpp
     src/drawCanvas.cpp
+    src/consolePrinter.cpp
 )
-add_executable(MyProject ${SOURCE_FILES})
+
+####### BUILDS
+#### RELEASE VERSION
+set(CMAKE_BUILD_TYPE Release)
+add_executable(MyProject WIN32 ${SOURCE_FILES})
+# add_executable(MyProject WIN32 src/main.cpp)
+#### DEBUG VERSION
+# set(CMAKE_BUILD_TYPE Debug)
+# add_executable(MyProject ${SOURCE_FILES})
+########
+
 
 # Set paths to the dependencies
 set(SFML_DIR "${CMAKE_SOURCE_DIR}/deps/sfml")

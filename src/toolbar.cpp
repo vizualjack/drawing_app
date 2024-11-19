@@ -1,5 +1,6 @@
 #include "gui.hpp"
 #include "global.hpp"
+#include "consolePrinter.hpp"
 #include <thread>
 
 
@@ -10,7 +11,8 @@ void openColorPicker() {
     tgui::Gui colorPickerGui{colorPickerWindow};
     auto colorPicker = tgui::ColorPicker::create("", Settings::brushColor);
     colorPicker->onOkPress([](const tgui::Color& color) {
-        std::cout << "Color selected: " << std::to_string(color.getRed()) << ", " << std::to_string(color.getGreen()) << ", " << std::to_string(color.getBlue()) << std::endl;
+        // std::cout << "Color selected: " << std::to_string(color.getRed()) << ", " << std::to_string(color.getGreen()) << ", " << std::to_string(color.getBlue()) << std::endl;
+        printToConsole("Color selected: " + std::to_string(color.getRed()) + ", " + std::to_string(color.getGreen()) + ", " + std::to_string(color.getBlue()));
         Settings::brushColor = color;
         colorButton->getRenderer()->setBackgroundColor(Settings::brushColor);
     });
@@ -19,7 +21,8 @@ void openColorPicker() {
         colorPickerWindow.close();
     });
     colorPicker->setAutoLayout(tgui::AutoLayout::Fill);
-    std::cout << "Open color picker..." << std::endl;
+    // std::cout << "Open color picker..." << std::endl;
+    printToConsole("Open color picker...");
     colorPickerGui.add(colorPicker);
     colorPickerOpen = true;
     colorPickerGui.mainLoop();
