@@ -3,6 +3,9 @@
 #include "gui.hpp"
 #include "global.hpp"
 #include "consolePrinter.hpp"
+#include "resource.hpp"
+#include "windows.h"
+
 
 int Settings::brushSize = 3;
 tgui::Color Settings::brushColor = tgui::Color::Black;
@@ -11,9 +14,12 @@ sf::RenderTexture Settings::canvasTexture;
 int main() {
     sf::RenderWindow window(sf::VideoMode(600, 400), "SFML + TGUI");
     tgui::Gui gui{window};
-    // auto customTheme = tgui::Theme::create();
-    // auto buttonRenderer = customTheme->getRenderer("Button");
-    // customTheme->get
+#ifdef DEBUG_BUILD
+    HICON hIcon = (HICON)LoadImage(GetModuleHandle(nullptr), MAKEINTRESOURCE(MYCUSTOMICON), IMAGE_ICON, 32, 32, LR_DEFAULTCOLOR);
+    if (hIcon) SetClassLongPtr(window.getSystemHandle(), GCLP_HICON, (LONG_PTR)hIcon);
+#else
+    printToConsole("No app icon because of debug build");
+#endif
     auto theme = tgui::Theme::getDefault();
     tgui::ButtonRenderer btnRenderer = theme->getRenderer("Button");
     btnRenderer.setBackgroundColor(tgui::Color::Black);

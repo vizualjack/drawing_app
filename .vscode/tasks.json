@@ -6,8 +6,7 @@
         "type": "shell",
         "command": "",
         "group": {
-            "kind": "build",
-            "isDefault": true
+            "kind": "build"
         },
         "problemMatcher": ["$gcc"],
         "options": {
@@ -23,8 +22,7 @@
         "type": "shell",
         "command": "",
         "group": {
-            "kind": "build",
-            "isDefault": true
+            "kind": "build"
         },
         "problemMatcher": ["$gcc"],
         "options": {
@@ -34,6 +32,24 @@
           }
         },
         "detail": "Builds the release version of the draw app",
+        "dependsOn": "Compile Resources",
+      },
+      {
+        "label": "Compile Resources",
+        "type": "shell",
+        "command": "C:\\msys64\\mingw32\\bin\\windres.exe",
+        "args": [
+            "resource.rc",
+            "-o",
+            "resource.o"
+        ],
+        "options": {
+            "shell": {
+              "executable": "C:/msys64/usr/bin/bash.exe",
+              "args": ["-c", "source /etc/profile && export PATH=/mingw32/bin:$PATH && cd '${workspaceFolder}' && windres resource.rc resource.o"],
+          }
+        },
+        "detail": "Builds the resource file (for e.g favicon) so it can be added to the exe (linking part)",
       },
     ]
   }

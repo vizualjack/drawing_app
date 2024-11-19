@@ -26,9 +26,10 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug")
         ${SFML_DIR}/lib/libsfml-system-s-d.a
     )
     set(EXE_NAME SimpleDrawApp-Debug)
+    target_compile_definitions(SimpleDrawApp PRIVATE RELEASE_BUILD)
 else()
     message(STATUS "Configuring Release build")
-    add_executable(SimpleDrawApp WIN32 ${SOURCE_FILES})
+    add_executable(SimpleDrawApp WIN32 ${SOURCE_FILES} resource.o)
     target_link_libraries(SimpleDrawApp PRIVATE
         ${TGUI_DIR}/lib/libtgui-s.a
         ${SFML_DIR}/lib/libsfml-graphics-s.a
@@ -36,6 +37,7 @@ else()
         ${SFML_DIR}/lib/libsfml-system-s.a
     )
     set(EXE_NAME SimpleDrawApp)
+    target_compile_definitions(SimpleDrawApp PRIVATE DEBUG_BUILD)
 endif()
 
 # Define static build flags
