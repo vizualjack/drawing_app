@@ -2,24 +2,7 @@
     "version": "2.0.0",
     "tasks": [
       {
-        "label": "cmake",
-        "type": "shell",
-        "command": "",
-        "group": {
-            "kind": "build",
-            "isDefault": false
-        },
-        "problemMatcher": ["$gcc"],
-        "options": {
-          "shell": {
-              "executable": "C:/msys64/usr/bin/bash.exe",
-              "args": ["-c", "source /etc/profile && export PATH=/mingw32/bin:$PATH && cd '${workspaceFolder}' && cmake -B build -G\"MSYS Makefiles\""],
-          }
-        },
-        "detail": "Generated task by VS Code"
-      },
-      {
-        "label": "make",
+        "label": "Build debug version",
         "type": "shell",
         "command": "",
         "group": {
@@ -30,11 +13,27 @@
         "options": {
           "shell": {
               "executable": "C:/msys64/usr/bin/bash.exe",
-              "args": ["-c", "source /etc/profile && export PATH=/mingw32/bin:$PATH && cd '${workspaceFolder}' && make -C ./build"],
+              "args": ["-c", "source /etc/profile && export PATH=/mingw32/bin:$PATH && cd '${workspaceFolder}' && cmake -DCMAKE_BUILD_TYPE=Debug -B build -G\"MSYS Makefiles\" && make -C ./build"],
           }
         },
-        "detail": "Generated task by VS Code",
-        "dependsOn": "cmake"
+        "detail": "Builds the debug version of the draw app",
+      },
+      {
+        "label": "Build release version",
+        "type": "shell",
+        "command": "",
+        "group": {
+            "kind": "build",
+            "isDefault": true
+        },
+        "problemMatcher": ["$gcc"],
+        "options": {
+          "shell": {
+              "executable": "C:/msys64/usr/bin/bash.exe",
+              "args": ["-c", "source /etc/profile && export PATH=/mingw32/bin:$PATH && cd '${workspaceFolder}' && cmake -DCMAKE_BUILD_TYPE=Release -B build -G\"MSYS Makefiles\" && make -C ./build"],
+          }
+        },
+        "detail": "Builds the release version of the draw app",
       },
     ]
   }

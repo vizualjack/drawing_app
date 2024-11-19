@@ -3,9 +3,9 @@
         {
             "name": "MSYS2 MinGW32",
             "includePath": [
-                "${workspaceFolder}/include",    // Path to SFML include folder
-                "C:/msys64/mingw32/include",     // MinGW32 include path
-                "C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/14.2.0/include", // GCC include path
+                "C:/msys64/mingw32/include",
+                "C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/14.2.0/include",
+                "${workspaceFolder}/include",
                 "${workspaceFolder}/deps/freetype/include",
                 "${workspaceFolder}/deps/sfml/include",
                 "${workspaceFolder}/deps/tgui/include",
