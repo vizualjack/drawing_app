@@ -1,9 +1,12 @@
 # Drawing application
 This is a small and simple drawing application. The project was mainly created for educational purposes. It's one of my first small projects i developed in c++ to get familiar with the language.
 
-<img src="doc/images/main.png" height="400">
-<img src="doc/images/menu.png" height="150"> <img src="doc/images/new-image-dialog.png" height="150">
-<img src="doc/images/file-selector.png" height="300">
+<span><img src="doc/images/main.png" height="400"></span>
+<p>
+  <span><img src="doc/images/menu.png" height="150"></span>
+  <span><img src="doc/images/new-image-dialog.png" height="150"></span>
+</p>
+<span><img src="doc/images/file-selector.png" height="300"></span>
 
 ## Features
 - Create new image with custom size
