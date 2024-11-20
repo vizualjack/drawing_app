@@ -29,5 +29,5 @@ You can find a release version in the releases section here in the repository. F
 5. Open the directory in visual studio code
 6. Have fun with it! The repository provides configuration files for visual studio code so building the application should be possible via Strg+Shift+B and when you press F5 for running the application it's automatically build the debug version before it starts running.
 
-### For those who didn't install MSYS2 into the default directory (C:\MSYS2)
+### For those who didn't install MSYS2 into the default directory (C:\MSYS2):
 Please replace all directory paths in the .vscode directory from C:\MSYS2 to your custom directory. The path should also end with the MSYS2 folder (e.g D:\MY\CUSTOM\PATH\MSYS2). One of the easiest way is to use the search tab in visual studio code.
